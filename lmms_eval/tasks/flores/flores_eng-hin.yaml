@@ -1,0 +1,26 @@
+dataset_path: facebook/flores
+dataset_name: 'eng_Latn-hin_Deva'
+task: 'flores_eng-hin'
+output_type: generate_until
+test_split: devtest
+doc_to_test: !function utils.flores_doc_to_text
+doc_to_target: 'sentence_hin_Deva'
+generation_kwargs:
+  max_new_tokens: 128
+  temperature: 0
+  top_p: 0
+  num_beams: 1
+  do_sample: false
+process_results: !function utils.flores_process_results
+metric_list:
+  - metric: bleu
+    aggregation: !function utils.flores_aggregate_results
+    higher_is_better: true
+  - metric: chrF
+    aggregation: !function utils.flores_aggregate_results
+    higher_is_better: true
+model_specific_prompt_kwargss:
+  default:
+    src-lang: 'eng_Latn'
+    tgt-lang: 'hin_Deva'
+

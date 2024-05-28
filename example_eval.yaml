@@ -1,15 +1,15 @@
 - model: llava
   model_args: pretrained=liuhaotian/llava-v1.5-7b
-  tasks: ai2d
+  tasks: flores
   batch_size: 1
   log_samples: true
-  log_samples_suffix: eval_vizwiz_vqa
+  log_samples_suffix: eval_flores
   output_path: "./logs/"
 
-- model: llava
-  model_args: pretrained=liuhaotian/llava-v1.5-13b
-  tasks: mme
-  batch_size: 1
-  log_samples: true
-  log_samples_suffix: mme
-  output_path: "./logs/"
+#- model: llava
+#  model_args: pretrained=liuhaotian/llava-v1.5-13b
+#  tasks: mme
+#  batch_size: 1
+#  log_samples: true
+#  log_samples_suffix: mme
+#  output_path: "./logs/"
